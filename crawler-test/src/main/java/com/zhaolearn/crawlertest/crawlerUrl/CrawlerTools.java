@@ -25,6 +25,7 @@ import org.springframework.stereotype.Component;
 public class CrawlerTools {
     @Autowired
     private URLEntityRepository urlEntityRepository;
+
     public static void crawlerTools(String firstURL) {
         URL url = null;
         URLConnection urlconn = null;
@@ -75,8 +76,8 @@ public class CrawlerTools {
         }
     }
 
-    public void crawlerAndDown(String firstURL,String path) {
-        List<URLEntity> urlList=new ArrayList<>();
+    public void crawlerAndDown(String firstURL, String path) {
+        List<URLEntity> urlList = new ArrayList<>();
         URL url = null;
         URLConnection urlconn = null;
         BufferedReader br = null;
@@ -92,13 +93,13 @@ public class CrawlerTools {
                 Matcher buf_m = p.matcher(buf);
                 while (buf_m.find()) {
 //                    System.out.println(buf_m.group());
-                    String result= buf_m.group();
-                    if(result.contains(".jpg")||result.contains(".png")){
-                        String uuid=UUID.randomUUID().toString();
-                        URLEntity haha=new URLEntity();
+                    String result = buf_m.group();
+                    if (result.contains(".jpg") || result.contains(".png")) {
+                        String uuid = UUID.randomUUID().toString();
+                        URLEntity haha = new URLEntity();
                         haha.setUrl(result);
-                        haha.setUrl(uuid+".jpg");
-                        DownURLPicture.downloadPicture(result,path+"/"+uuid+".jpg");
+                        haha.setUrl(uuid + ".jpg");
+                        DownURLPicture.downloadPicture(result, path + "/" + uuid + ".jpg");
                         urlList.add(haha);
                     }
                 }
@@ -109,7 +110,7 @@ public class CrawlerTools {
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            if(urlList.size()!=0){
+            if (urlList.size() != 0) {
                 urlEntityRepository.saveAll(urlList);
             }
             try {

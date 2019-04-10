@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table( name ="url_table" )
+@Table(name = "url_table")
 public class URLEntity implements Serializable {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
