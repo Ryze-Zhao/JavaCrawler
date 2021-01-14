@@ -1,9 +1,7 @@
 package com.zhaolearn.crawlertest;
 
-import com.zhaolearn.crawlertest.crawlerUrl.CrawlerBiliBiliTitle;
-import com.zhaolearn.crawlertest.crawlerUrl.CrawlerTools;
-import com.zhaolearn.crawlertest.crawlerUrl.DownURLPicture;
-import com.zhaolearn.crawlertest.crawlerUrl.URLEntityRepository;
+import com.zhaolearn.crawlertest.crawlerUrl.*;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,9 +35,15 @@ public class CrawlerTestApplicationTests {
     public void replace() {
         DownURLPicture.downloadPicture("https://i0.hdslb.com/bfs/sycp/creative_img/201901/93004fc1c8b8fedf261d38928604905e.jpg", "d:/pic.jpg");
     }
+
     @Test
     public void getBiliBiliTitle() {
         CrawlerBiliBiliTitle.getBiliBiliTitle("https://www.bilibili.com/video/av36650577/?p=94");
+    }
+
+    @Test
+    public void getNameCra() {
+        NameCra.getName("http://www.laohuangli.net/topic/baobaonamelist.html?StrName=%E4%BD%95&xi=%E6%9C%A8%E7%81%AB&StrSex=1&LYear=%E9%BC%A0");
     }
 
 }
