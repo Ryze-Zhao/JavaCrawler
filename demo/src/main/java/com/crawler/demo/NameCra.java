@@ -17,7 +17,7 @@ public class NameCra {
 
     public static void getName(String url) {
         Document doc = null;
-        log.info("111111111111111111111111");
+//        log.info("111111111111111111111111");
         try {
             //因为bilibili的代码，并不是将视频列表的标题放在标签中，而是在头部有，所以创建好正则，一会从页面代码拿
 //            String regex = "<span>[\\u4e00-\\u9fa5]</span>";
